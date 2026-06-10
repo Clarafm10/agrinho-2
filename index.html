@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2026 - Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Agrinho <span>2026</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#quiz">Desafio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>O equilíbrio perfeito entre a alta produção e a preservação do meio ambiente.</p>
+            <a href="#quiz" class="btn-main">Testar meus conhecimentos</a>
+        </div>
+    </section>
+
+    <section id="pilares" class="pillars-section">
+        <h2>O Equilíbrio na Prática</h2>
+        <div class="pillars-container">
+            <div class="card">
+                <h3>🌱 Produção</h3>
+                <p>Alimentando o mundo com eficiência, responsabilidade e técnicas que protegem o solo.</p>
+            </div>
+            <div class="card">
+                <h3>🚀 Tecnologia</h3>
+                <p>Drones, IA e monitoramento inteligente reduzindo o desperdício de água e insumos.</p>
+            </div>
+            <div class="card">
+                <h3>♻️ Preservação</h3>
+                <p>Manutenção de frentes verdes, rotação de culturas e respeito à biodiversidade local.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+        <h2>Eco-Desafio Agrinho</h2>
+        <p>Será que você sabe tudo sobre o agro sustentável? Responda abaixo!</p>
+        
+        <div class="quiz-container">
+            <div id="question-box">
+                <p id="question">Carregando pergunta...</p>
+                <div class="options-container">
+                    <button class="option-btn" onclick="checkAnswer(true)">Verdadeiro</button>
+                    <button class="option-btn" onclick="checkAnswer(false)">Falso</button>
+                </div>
+            </div>
+            <div id="result-box" class="hidden">
+                <p id="result-message"></p>
+                <button class="btn-main" onclick="restartQuiz()">Jogar Novamente</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Projeto Agrinho - Desenvolvido para um futuro mais verde.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
