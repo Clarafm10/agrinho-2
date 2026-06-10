@@ -1,65 +1,77 @@
-// Banco de perguntas (Pergunta, resposta correta em booleano, explicação)
-const quizData = [
+// Estrutura de dados otimizada (Múltipla escolha em vez de Verdadeiro/Falso)
+const questoes = [
     {
-        question: "A tecnologia no campo, como o uso de drones, ajuda a economizar água na irrigação?",
-        answer: true,
-        explanation: "Correto! Os drones e sensores detectam as áreas exatas que precisam de água, evitando o desperdício."
+        pergunta: "Qual dessas tecnologias reduz drasticamente o uso excessivo de agrotóxicos?",
+        alternativas: [
+            "Drones e sensores de mapeamento seletivo",
+            "Tratores convencionais mais velozes",
+            "Sistemas de irrigação por inundação",
+            "Aumento manual da colheita"
+        ],
+        correta: 0,
+        motivo: "Drones identificam os focos exatos de pragas, aplicando insumos apenas onde é necessário."
     },
     {
-        question: "Para produzir mais alimentos, é sempre obrigatório desmatar novas florestas?",
-        answer: false,
-        explanation: "Exato! Com tecnologia e técnicas como a rotação de culturas, podemos aumentar a produção reaproveitando terras já abertas."
-    },
-    {
-        question: "A rotação de culturas ajuda a manter os nutrientes do solo saudáveis?",
-        answer: true,
-        explanation: "Muito bem! Alternar as plantas cultivadas evita o esgotamento do solo e diminui pragas."
+        pergunta: "O que é o sistema de Plantio Direto e por que ele é sustentável?",
+        alternativas: [
+            "Queimar o solo antes de plantar para limpar a área",
+            "Plantar diretamente sobre os resíduos da colheita anterior, protegendo o solo",
+            "Retirar toda a cobertura vegetal para expor a terra ao sol",
+            "Cultivar apenas plantas aquáticas"
+        ],
+        correta: 1,
+        motivo: "Esse método evita a erosão, mantém a umidade da terra e conserva os nutrientes naturais do solo."
     }
 ];
 
-let currentQuestionIndex = 0;
-let score = 0;
+let indiceAtual = 0;
 
-const questionElement = document.getElementById("question");
-const questionBox = document.getElementById("question-box");
-const resultBox = document.getElementById("result-box");
-const resultMessage = document.getElementById("result-message");
+const campoPergunta = document.getElementById("quiz-question");
+const containerOpcoes = document.getElementById("quiz-options");
+const campoFeedback = document.getElementById("quiz-feedback");
 
-function loadQuestion() {
-    if (currentQuestionIndex < quizData.length) {
-        questionElement.innerText = quizData[currentQuestionIndex].question;
+function iniciarEtapa() {
+    // Limpa estados anteriores
+    containerOpcoes.innerHTML = "";
+    campoFeedback.innerText = "";
+
+    if (indiceAtual < questoes.length) {
+        let dadosItem = questoes[indiceAtual];
+        campoPergunta.innerText = dadosItem.pergunta;
+
+        // Renderiza botões dinamicamente no DOM
+        dadosItem.alternativas.forEach((opcao, indice) => {
+            const botao = document.createElement("button");
+            botao.classList.add("quiz-btn");
+            botao.innerText = `${indice + 1}. ${opcao}`;
+            botao.addEventListener("click", () => validarEscolha(indice));
+            containerOpcoes.appendChild(botao);
+        });
     } else {
-        showResults();
+        campoPergunta.innerText = "Parabéns! Você completou a jornada ecológica.";
+        campoFeedback.innerText = "Você está pronto para aplicar o equilíbrio sustentável no futuro do nosso Agro!";
     }
 }
 
-function checkAnswer(userAnswer) {
-    const correctAnswer = quizData[currentQuestionIndex].answer;
+function validarEscolha(indiceSelecionado) {
+    let itemCorrente = questoes[indiceAtual];
     
-    if (userAnswer === correctAnswer) {
-        score++;
-        alert("Acertou! " + quizData[currentQuestionIndex].explanation);
+    // Desabilita os botões para evitar cliques repetidos durante a transição
+    const botoes = containerOpcoes.querySelectorAll("button");
+    botoes.forEach(b => b.disabled = true);
+
+    if (indiceSelecionado === itemCorrente.correta) {
+        campoFeedback.style.color = "#52b788";
+        campoFeedback.innerText = "Excelente! " + itemCorrente.motivo;
     } else {
-        alert("Errado... " + quizData[currentQuestionIndex].explanation);
+        campoFeedback.style.color = "#ff9f1c";
+        campoFeedback.innerText = "Não foi dessa vez. O correto seria: " + itemCorrente.motivo;
     }
-    
-    currentQuestionIndex++;
-    loadQuestion();
+
+    // Avança para a próxima pergunta após 4 segundos para dar tempo de ler o feedback
+    indiceAtual++;
+    setTimeout(iniciarEtapa, 4000);
 }
 
-function showResults() {
-    questionBox.classList.add("hidden");
-    resultBox.classList.remove("hidden");
-    resultMessage.innerText = `Você completou o desafio! Acertou ${score} de ${quizData.length} perguntas.`;
-}
-
-function restartQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    resultBox.classList.add("hidden");
-    questionBox.classList.remove("hidden");
-    loadQuestion();
-}
-
-// Inicializa o quiz na primeira execução
-window.onload = loadQuestion;
+// Inicialização imediata
+iniciarEtapa();

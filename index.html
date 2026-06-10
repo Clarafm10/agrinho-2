@@ -3,72 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Futuro Sustentável</title>
+    <title>Agrinho 2026 - Conexão Sustentável</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Agrinho <span>2026</span></div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#pilares">Pilares</a></li>
-                <li><a href="#quiz">Desafio</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="floating-menu">
+        <div class="brand">AGRO<span>2026</span></div>
+        <div class="menu-items">
+            <a href="#home">Início</a>
+            <a href="#conteudo">Eixos</a>
+            <a href="#interativo">Desafio</a>
+        </div>
+    </nav>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Agro Forte, Futuro Sustentável</h1>
-            <p>O equilíbrio perfeito entre a alta produção e a preservação do meio ambiente.</p>
-            <a href="#quiz" class="btn-main">Testar meus conhecimentos</a>
+    <section id="home" class="main-banner">
+        <div class="glass-card">
+            <h1>Agro forte, futuro sustentável</h1>
+            <h2>Equilíbrio entre produção e meio ambiente</h2>
+            <p>Descubra como a tecnologia e a preservação caminham juntas na agricultura moderna.</p>
+            <a href="#conteudo" class="action-link">Explorar Ecossistema</a>
         </div>
     </section>
 
-    <section id="pilares" class="pillars-section">
-        <h2>O Equilíbrio na Prática</h2>
-        <div class="pillars-container">
-            <div class="card">
-                <h3>🌱 Produção</h3>
-                <p>Alimentando o mundo com eficiência, responsabilidade e técnicas que protegem o solo.</p>
+    <section id="conteudo" class="grid-section">
+        <h3 class="section-title">Nossos Compromissos</h3>
+        <div class="grid-container">
+            <div class="grid-item item-1">
+                <span class="icon">🚜</span>
+                <h4>Produção Consciente</h4>
+                <p>Otimização do plantio direto e manejo inteligente do solo para garantir safras recordes sem agredir a terra.</p>
             </div>
-            <div class="card">
-                <h3>🚀 Tecnologia</h3>
-                <p>Drones, IA e monitoramento inteligente reduzindo o desperdício de água e insumos.</p>
+            <div class="grid-item item-2">
+                <span class="icon">💧</span>
+                <h4>Gestão Hídrica</h4>
+                <p>Sistemas de gotejamento automatizados e captação de água da chuva reduzem o consumo de recursos essenciais.</p>
             </div>
-            <div class="card">
-                <h3>♻️ Preservação</h3>
-                <p>Manutenção de frentes verdes, rotação de culturas e respeito à biodiversidade local.</p>
+            <div class="grid-item item-3">
+                <span class="icon">📊</span>
+                <h4>Agro-Tech</h4>
+                <p>Uso de inteligência artificial para mapear pragas, evitando a aplicação desnecessária de defensivos químicos.</p>
             </div>
         </div>
     </section>
 
-    <section id="quiz" class="quiz-section">
-        <h2>Eco-Desafio Agrinho</h2>
-        <p>Será que você sabe tudo sobre o agro sustentável? Responda abaixo!</p>
-        
-        <div class="quiz-container">
-            <div id="question-box">
-                <p id="question">Carregando pergunta...</p>
-                <div class="options-container">
-                    <button class="option-btn" onclick="checkAnswer(true)">Verdadeiro</button>
-                    <button class="option-btn" onclick="checkAnswer(false)">Falso</button>
-                </div>
-            </div>
-            <div id="result-box" class="hidden">
-                <p id="result-message"></p>
-                <button class="btn-main" onclick="restartQuiz()">Jogar Novamente</button>
+    <section id="interativo" class="interactive-section">
+        <div class="quiz-wrapper">
+            <h3>Missão Sustentável</h3>
+            <p class="quiz-intro">Escolha a alternativa correta e ajude a proteger a nossa fazenda virtual!</p>
+            
+            <div id="quiz-app">
+                <p id="quiz-question" class="question-text"></p>
+                <div id="quiz-options" class="options-grid"></div>
+                <div id="quiz-feedback" class="feedback-text"></div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Projeto Agrinho - Desenvolvido para um futuro mais verde.</p>
+        <p>Agrinho 2026 • Conscientização ambiental e inovação tecnológica nas escolas.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
+<script src="script.js"></script>
 </html>
