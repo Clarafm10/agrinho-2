@@ -3,68 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Conexão Sustentável</title>
+    <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="floating-menu">
-        <div class="brand">AGRO<span>2026</span></div>
-        <div class="menu-items">
-            <a href="#home">Início</a>
-            <a href="#conteudo">Eixos</a>
-            <a href="#interativo">Desafio</a>
-        </div>
-    </nav>
+    <header>
+        <div class="logo">Agrinho 2026</div>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section id="home" class="main-banner">
-        <div class="glass-card">
-            <h1>Agro forte, futuro sustentável</h1>
-            <h2>Equilíbrio entre produção e meio ambiente</h2>
-            <p>Descubra como a tecnologia e a preservação caminham juntas na agricultura moderna.</p>
-            <a href="#conteudo" class="action-link">Explorar Ecossistema</a>
-        </div>
-    </section>
-
-    <section id="conteudo" class="grid-section">
-        <h3 class="section-title">Nossos Compromissos</h3>
-        <div class="grid-container">
-            <div class="grid-item item-1">
-                <span class="icon">🚜</span>
-                <h4>Produção Consciente</h4>
-                <p>Otimização do plantio direto e manejo inteligente do solo para garantir safras recordes sem agredir a terra.</p>
-            </div>
-            <div class="grid-item item-2">
-                <span class="icon">💧</span>
-                <h4>Gestão Hídrica</h4>
-                <p>Sistemas de gotejamento automatizados e captação de água da chuva reduzem o consumo de recursos essenciais.</p>
-            </div>
-            <div class="grid-item item-3">
-                <span class="icon">📊</span>
-                <h4>Agro-Tech</h4>
-                <p>Uso de inteligência artificial para mapear pragas, evitando a aplicação desnecessária de defensivos químicos.</p>
-            </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Por que ter Equilíbrio entre a produção e o meio ambiente?</h1>
         </div>
     </section>
 
-    <section id="interativo" class="interactive-section">
-        <div class="quiz-wrapper">
-            <h3>Missão Sustentável</h3>
-            <p class="quiz-intro">Escolha a alternativa correta e ajude a proteger a nossa fazenda virtual!</p>
-            
-            <div id="quiz-app">
-                <p id="quiz-question" class="question-text"></p>
-                <div id="quiz-options" class="options-grid"></div>
-                <div id="quiz-feedback" class="feedback-text"></div>
+    <main class="container">
+        <section id="sobre" class="info-section">
+            <div class="card card-left">
+                <p>O equilíbrio entre produção e meio ambiente (desenvolvimento sustentável) consiste em suprir as necessidades do presente sem esgotar os recursos naturais. Isso exige modelos econômicos e agrícolas que maximizem a eficiência dos insumos, reduzam a pegada ecológica e protejam a biodiversidade.</p>
             </div>
-        </div>
-    </section>
 
-    <footer>
-        <p>Agrinho 2026 • Conscientização ambiental e inovação tecnológica nas escolas.</p>
+            <div class="card card-right" id="pilares">
+                <h2>As principais estratégias para alcançar essa harmonia incluem:</h2>
+                <ul>
+                    <li><strong class="highlight" onclick="mostrarDetalhe('tecnologia')">Tecnologia e Inovação</strong></li>
+                    <li><strong class="highlight" onclick="mostrarDetalhe('sistemas')">Sistemas Integrados</strong></li>
+                    <li><strong class="highlight" onclick="mostrarDetalhe('economia')">Economia Circular e Controle de Resíduos</strong></li>
+                </ul>
+                <div id="painel-detalhes" class="detalhe-box">
+                    <p><em>Clique em uma das estratégias acima para saber mais!</em></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <p>&copy; 2026 Projeto Agrinho - Agro forte, futuro sustentável.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>

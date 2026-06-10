@@ -1,77 +1,29 @@
-// Estrutura de dados otimizada (Múltipla escolha em vez de Verdadeiro/Falso)
-const questoes = [
-    {
-        pergunta: "Qual dessas tecnologias reduz drasticamente o uso excessivo de agrotóxicos?",
-        alternativas: [
-            "Drones e sensores de mapeamento seletivo",
-            "Tratores convencionais mais velozes",
-            "Sistemas de irrigação por inundação",
-            "Aumento manual da colheita"
-        ],
-        correta: 0,
-        motivo: "Drones identificam os focos exatos de pragas, aplicando insumos apenas onde é necessário."
-    },
-    {
-        pergunta: "O que é o sistema de Plantio Direto e por que ele é sustentável?",
-        alternativas: [
-            "Queimar o solo antes de plantar para limpar a área",
-            "Plantar diretamente sobre os resíduos da colheita anterior, protegendo o solo",
-            "Retirar toda a cobertura vegetal para expor a terra ao sol",
-            "Cultivar apenas plantas aquáticas"
-        ],
-        correta: 1,
-        motivo: "Esse método evita a erosão, mantém a umidade da terra e conserva os nutrientes naturais do solo."
-    }
-];
-
-let indiceAtual = 0;
-
-const campoPergunta = document.getElementById("quiz-question");
-const containerOpcoes = document.getElementById("quiz-options");
-const campoFeedback = document.getElementById("quiz-feedback");
-
-function iniciarEtapa() {
-    // Limpa estados anteriores
-    containerOpcoes.innerHTML = "";
-    campoFeedback.innerText = "";
-
-    if (indiceAtual < questoes.length) {
-        let dadosItem = questoes[indiceAtual];
-        campoPergunta.innerText = dadosItem.pergunta;
-
-        // Renderiza botões dinamicamente no DOM
-        dadosItem.alternativas.forEach((opcao, indice) => {
-            const botao = document.createElement("button");
-            botao.classList.add("quiz-btn");
-            botao.innerText = `${indice + 1}. ${opcao}`;
-            botao.addEventListener("click", () => validarEscolha(indice));
-            containerOpcoes.appendChild(botao);
-        });
-    } else {
-        campoPergunta.innerText = "Parabéns! Você completou a jornada ecológica.";
-        campoFeedback.innerText = "Você está pronto para aplicar o equilíbrio sustentável no futuro do nosso Agro!";
-    }
-}
-
-function validarEscolha(indiceSelecionado) {
-    let itemCorrente = questoes[indiceAtual];
+// Função para adicionar interatividade aos pilares do Agro Sustentável
+function mostrarDetalhe(tipo) {
+    const painel = document.getElementById('painel-detalhes');
     
-    // Desabilita os botões para evitar cliques repetidos durante a transição
-    const botoes = containerOpcoes.querySelectorAll("button");
-    botoes.forEach(b => b.disabled = true);
+    let texto = "";
 
-    if (indiceSelecionado === itemCorrente.correta) {
-        campoFeedback.style.color = "#52b788";
-        campoFeedback.innerText = "Excelente! " + itemCorrente.motivo;
-    } else {
-        campoFeedback.style.color = "#ff9f1c";
-        campoFeedback.innerText = "Não foi dessa vez. O correto seria: " + itemCorrente.motivo;
+    switch(tipo) {
+        case 'tecnologia':
+            texto = "<strong>Tecnologia e Inovação:</strong> Uso de drones, sensores IoT e tratores autônomos para aplicar água e fertilizantes na quantidade exata, evitando desperdícios.";
+            break;
+        case 'sistemas':
+            texto = "<strong>Sistemas Integrados:</strong> Integração Lavoura-Pecuária-Floresta (ILPF) que otimiza o uso da terra, recupera pastagens degradadas e fixa carbono no solo.";
+            break;
+        case 'economia':
+            texto = "<strong>Economia Circular:</strong> Transformação de dejetos animais e restos de cultura em biofertilizantes e biogás, gerando energia limpa para a própria fazenda.";
+            break;
+        default:
+            texto = "<em>Clique em uma das estratégias acima para saber mais!</em>";
     }
 
-    // Avança para a próxima pergunta após 4 segundos para dar tempo de ler o feedback
-    indiceAtual++;
-    setTimeout(iniciarEtapa, 4000);
+    // Altera o conteúdo interno do painel com um efeito visual simples
+    painel.innerHTML = texto;
+    painel.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    
+    // Reseta o fundo depois de um tempinho para dar efeito de clique
+    setTimeout(() => {
+        painel.style.backgroundColor = "rgba(255, 255, 255, 0.15)";
+    }, 300);
 }
-
-// Inicialização imediata
-iniciarEtapa();
